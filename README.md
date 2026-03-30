@@ -1,34 +1,18 @@
-# Astro Starter Kit: Basics
+# Pavillion Site
 
-```sh
-npm create astro@latest -- --template basics
-```
+The marketing and explainer site for [Pavillion](https://pavillion.events) — a decentralized community events calendar built on ActivityPub.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This site introduces Pavillion to event organizers, community curators, and anyone looking to build an interconnected local events ecosystem. It covers what Pavillion does, who it's for, and how it works.
 
-## 🚀 Project Structure
+- **Live site:** [pavillion.events](https://pavillion.events)
+- **Demo:** [demo.pavillion.events](https://demo.pavillion.events)
+- **Docs:** [docs.pavillion.dev](https://docs.pavillion.dev)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Tech
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Built with [Astro](https://astro.build).
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -40,7 +24,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
