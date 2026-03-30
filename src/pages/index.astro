@@ -1,11 +1,793 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <!-- ════ NAV ════ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">
+        <svg class="nav-logo" viewBox="0 0 159 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g transform="translate(-93.877,-110.336)">
+            <g transform="matrix(0.5,0,0,0.5,86.6025,150)"><path d="M179.912,111.617L325.153,195.472C307.246,198.696 279.296,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
+            <g transform="matrix(-0.5,-6.12323e-17,6.12323e-17,-0.5,259.808,250)"><path d="M179.912,111.617L325.153,195.472C307.246,198.696 279.296,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
+            <g transform="matrix(-0.25,-0.433013,0.433013,-0.25,173.205,300)"><path d="M179.912,111.617L325.153,195.472C307.248,198.696 279.297,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
+            <g transform="matrix(0.25,-0.433013,0.433013,0.25,86.6025,250)"><path d="M179.912,111.617L325.153,195.472C307.246,198.696 279.296,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
+            <g transform="matrix(0.25,0.433013,-0.433013,0.25,173.205,100)"><path d="M179.912,111.617L325.153,195.472C307.248,198.696 279.297,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
+            <g transform="matrix(-0.25,0.433013,-0.433013,-0.25,259.808,150)"><path d="M179.912,111.617L325.153,195.472C307.246,198.696 279.296,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
+          </g>
+        </svg>
+        <span class="nav-wordmark">Pavillion</span>
+      </a>
+      <div class="nav-links">
+        <a href="#for-whom" class="nav-link">Is it for me?</a>
+        <a href="https://demo.pavillion.events" class="nav-link nav-link-demo">See the demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════ HERO ════ -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-heading">
+        Your community's events,<br />all in one place.
+      </h1>
+      <p class="hero-sub">
+        Pavillion is an events calendar for the people who make communities tick.
+        If you put on events, it gets them in front of more people. If you run
+        a community calendar, the events come to you — straight from the people
+        actually running them.
+      </p>
+      <div class="hero-actions">
+        <a href="https://demo.pavillion.events" class="btn btn-primary">See it in action</a>
+        <a href="#for-whom" class="btn btn-secondary">Is it for me?</a>
+      </div>
+    </div>
+
+    <!-- Visual proof: hero screenshot -->
+    <div class="container hero-visual-container">
+      <div class="placeholder-visual placeholder-visual--hero">
+        <div class="placeholder-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Screenshot: public calendar view — month layout with event cards
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FEATURES (primary — pain-point driven) ════ -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-heading">Everything your community calendar needs</h2>
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- calendar-plus -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
+          </div>
+          <h3 class="feature-title">Easy to post, easy to manage</h3>
+          <p class="feature-desc">
+            Create one-time or recurring events, add images and locations,
+            organize by category, and invite collaborators to help keep your
+            calendar up to date.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- users -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="feature-title">Publish once, show up everywhere</h3>
+          <p class="feature-desc">
+            Other calendars can follow yours and pick up your events
+            automatically. You post it once; it shows up everywhere it matters.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- monitor (embed) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="feature-title">Embed on your website</h3>
+          <p class="feature-desc">
+            Add your calendar to any website with a simple embed code. Choose
+            your colors and layout — it looks like a natural part of your site,
+            not an afterthought.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ VISUAL PROOF: widget embed ════ -->
+  <section class="visual-break">
+    <div class="container">
+      <div class="placeholder-visual placeholder-visual--widget">
+        <div class="placeholder-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Screenshot: the embeddable widget on a community website — showing how it looks as a natural part of someone else's page
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ USE CASES ════ -->
+  <section id="for-whom" class="usecases">
+    <div class="container">
+      <h2 class="section-heading">Made for the people who make things happen</h2>
+      <div class="usecase-grid">
+
+        <div class="usecase-card">
+          <span class="usecase-label">Event organizers</span>
+          <h3 class="usecase-title">You put real work into your events — people should know about them.</h3>
+          <p class="usecase-desc">
+            You're a nonprofit, a local business, a church, a neighborhood group —
+            and you're already doing the hard part: creating something worth showing
+            up for. Pavillion gives you a calendar you control, with tools for
+            recurring events, categories, and multiple languages — and when community
+            calendars follow yours, your events reach people you'd never get to on
+            your own.
+          </p>
+        </div>
+
+        <div class="usecase-card">
+          <span class="usecase-label">Community curators</span>
+          <h3 class="usecase-title">You know your community has more going on than anyone realizes.</h3>
+          <p class="usecase-desc">
+            You work for a city, a chamber of commerce, a tourism board — or you're
+            just the person everyone counts on to know what's happening. The problem
+            isn't a lack of events; it's that they're scattered across a dozen websites
+            and nobody sees the full picture. Pavillion lets you follow the organizations
+            you care about, so their events show up on your calendar automatically.
+          </p>
+        </div>
+
+        <div class="usecase-card">
+          <span class="usecase-label">Community champions</span>
+          <h3 class="usecase-title">You want your community to feel alive and connected.</h3>
+          <p class="usecase-desc">
+            You know that when people can easily find what's happening around them,
+            they show up more — to local events, local businesses, local life.
+            Pavillion gives your community a single, shared view of everything
+            going on, so nothing gets missed and no one feels out of the loop.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ VISUAL PROOF: event management ════ -->
+  <section class="visual-break visual-break--alt">
+    <div class="container">
+      <div class="placeholder-visual placeholder-visual--admin">
+        <div class="placeholder-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Screenshot: event creation or calendar management interface — showing the organizer experience
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ SECONDARY FEATURES (values / differentiators) ════ -->
+  <section class="extras">
+    <div class="container">
+      <h2 class="section-heading">Built with your whole community in mind</h2>
+      <div class="extras-grid">
+
+        <div class="extras-item">
+          <div class="extras-icon">
+            <!-- unlock (no barriers) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+          </div>
+          <div>
+            <h3 class="extras-title">No sign-up required for attendees</h3>
+            <p class="extras-desc">
+              Anyone can browse and discover events without creating an account
+              or handing over personal information. More people see your events,
+              with less standing in the way.
+            </p>
+          </div>
+        </div>
+
+        <div class="extras-item">
+          <div class="extras-icon">
+            <!-- globe (multilingual) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <h3 class="extras-title">Multilingual from the ground up</h3>
+            <p class="extras-desc">
+              Publish events in multiple languages so everyone in your community
+              can find what's happening — in the language they're most comfortable with.
+            </p>
+          </div>
+        </div>
+
+        <div class="extras-item">
+          <div class="extras-icon">
+            <!-- accessibility -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.5" r="1.5"/><path d="M7.5 11h9"/><path d="M12 11v5.5"/><path d="M9.5 21l2.5-4.5 2.5 4.5"/></svg>
+          </div>
+          <div>
+            <h3 class="extras-title">Accessibility details built in</h3>
+            <p class="extras-desc">
+              Add wheelchair access, hearing assistance, and sensory information
+              to events and venues so attendees know what to expect before they arrive.
+            </p>
+          </div>
+        </div>
+
+        <div class="extras-item">
+          <div class="extras-icon">
+            <!-- shield (privacy) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3 class="extras-title">No tracking, no ads</h3>
+            <p class="extras-desc">
+              Your community calendar isn't a product. There's no advertising,
+              no data collection, and no corporate platform making decisions about
+              who sees your events.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CTA ════ -->
+  <section class="cta">
+    <div class="container">
+      <h2 class="cta-heading">Ready to give your community a calendar it deserves?</h2>
+      <p class="cta-sub">
+        Explore the demo to see how it works. When you're ready to get
+        started, reach out — we'll help you set things up.
+      </p>
+      <div class="cta-actions">
+        <a href="https://demo.pavillion.events" class="btn btn-primary">Explore the demo</a>
+        <a href="mailto:hello@pavillion.events" class="btn btn-secondary">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FAQ ════ -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-heading">Common questions</h2>
+      <div class="faq-grid">
+
+        <div class="faq-item">
+          <h3 class="faq-question">How do I get started?</h3>
+          <p class="faq-answer">
+            We're onboarding early communities now. If Pavillion sounds like
+            a fit, get in touch — we'll send you an invite and help you get
+            set up.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">What does it cost?</h3>
+          <p class="faq-answer">
+            Pricing depends on your hosting provider. We're currently onboarding
+            early communities — get in touch and we'll figure out what works.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How do calendars connect to each other?</h3>
+          <p class="faq-answer">
+            Pavillion uses an open standard called ActivityPub — the same
+            technology behind Mastodon and the fediverse. Your calendar isn't
+            locked into one platform. Any Pavillion calendar can follow any
+            other, no matter where it's hosted.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">Pavillion</span>
+      <div class="footer-links">
+        <a href="https://demo.pavillion.events">Demo</a>
+        <a href="https://docs.pavillion.dev">Documentation</a>
+      </div>
+      <p class="footer-note">Community-owned event infrastructure.</p>
+    </div>
+  </footer>
 </Layout>
+
+<style is:global>
+  /* ── Shared ── */
+  .container {
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container { padding: 0 2rem; }
+  }
+
+  .section-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-stone-800);
+  }
+
+  @media (min-width: 768px) {
+    .section-heading { font-size: 2.28rem; }
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--color-orange-500);
+    color: #fff;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
+  }
+  .btn-primary:hover {
+    background: var(--color-orange-600);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-stone-700);
+    border: 1.5px solid var(--color-stone-300);
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-stone-400);
+    background: var(--color-stone-100);
+  }
+
+  /* ── Placeholder visuals ── */
+  .placeholder-visual {
+    border: 2px dashed var(--color-stone-300);
+    border-radius: var(--radius-2xl);
+    background:
+      linear-gradient(135deg, var(--color-stone-100) 25%, transparent 25%),
+      linear-gradient(225deg, var(--color-stone-100) 25%, transparent 25%),
+      linear-gradient(315deg, var(--color-stone-100) 25%, transparent 25%),
+      linear-gradient(45deg, var(--color-stone-100) 25%, transparent 25%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder-visual--hero {
+    height: 22rem;
+    margin-top: 3rem;
+  }
+
+  .placeholder-visual--widget {
+    height: 18rem;
+  }
+
+  .placeholder-visual--admin {
+    height: 16rem;
+  }
+
+  .placeholder-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-stone-400);
+    background: rgba(250, 250, 249, 0.9);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-lg);
+    max-width: 36rem;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .placeholder-label svg {
+    flex-shrink: 0;
+  }
+
+  /* ── Nav ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: rgba(250, 250, 249, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-stone-200);
+  }
+
+  .nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0.875rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nav-logo {
+    width: 1.6rem;
+    height: auto;
+    color: var(--color-orange-500);
+  }
+
+  .nav-wordmark {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-stone-800);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-stone-600);
+    transition: color 0.15s;
+  }
+  .nav-link:hover {
+    color: var(--color-orange-500);
+  }
+
+  .nav-link-demo {
+    color: var(--color-orange-500);
+    font-weight: 600;
+  }
+  .nav-link-demo:hover {
+    color: var(--color-orange-600);
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 6rem 0 2rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(249, 115, 22, 0.06) 0%, transparent 100%),
+      var(--color-stone-50);
+  }
+
+  .hero-heading {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--color-stone-900);
+    margin-bottom: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-heading { font-size: 4rem; }
+  }
+
+  .hero-sub {
+    max-width: 38rem;
+    margin: 0 auto 2.5rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-stone-600);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-visual-container {
+    padding-bottom: 5rem;
+  }
+
+  /* ── Features (primary) ── */
+  .features {
+    padding: 5rem 0;
+    background: #fff;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .feature-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .feature-card {
+    padding: 2rem;
+    border: 1px solid var(--color-stone-200);
+    border-radius: var(--radius-xl);
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .feature-card:hover {
+    border-color: var(--color-stone-300);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 6%), 0 2px 4px -2px rgb(0 0 0 / 6%);
+  }
+
+  .feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-lg);
+    background: var(--color-orange-50);
+    color: var(--color-orange-500);
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-stone-800);
+  }
+
+  .feature-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-stone-600);
+  }
+
+  /* ── Visual break sections ── */
+  .visual-break {
+    padding: 3rem 0;
+    background: #fff;
+  }
+
+  .visual-break--alt {
+    background: var(--color-stone-50);
+  }
+
+  /* ── Use Cases ── */
+  .usecases {
+    padding: 5rem 0;
+    background: var(--color-stone-50);
+  }
+
+  .usecase-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .usecase-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .usecase-card {
+    padding: 2rem 2.25rem;
+    background: #fff;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-stone-200);
+  }
+
+  .usecase-label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-orange-500);
+    margin-bottom: 0.5rem;
+  }
+
+  .usecase-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-stone-800);
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .usecase-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-stone-600);
+  }
+
+  /* ── Extras (secondary features / values) ── */
+  .extras {
+    padding: 5rem 0;
+    background: #fff;
+  }
+
+  .extras-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 52rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .extras-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .extras-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border-radius: var(--radius-xl);
+  }
+
+  .extras-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-lg);
+    background: var(--color-stone-100);
+    color: var(--color-stone-500);
+  }
+
+  .extras-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--color-stone-800);
+  }
+
+  .extras-desc {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-stone-500);
+  }
+
+  /* ── CTA ── */
+  .cta {
+    padding: 5rem 0;
+    text-align: center;
+    background: var(--color-stone-50);
+  }
+
+  .cta-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-stone-900);
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .cta-heading { font-size: 2.28rem; }
+  }
+
+  .cta-sub {
+    max-width: 34rem;
+    margin: 0 auto 2rem;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-stone-600);
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FAQ ── */
+  .faq {
+    padding: 5rem 0;
+    background: #fff;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 52rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .faq-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .faq-question {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-stone-800);
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-answer {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-stone-600);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--color-stone-200);
+    background: var(--color-stone-50);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .footer-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-stone-700);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.875rem;
+    color: var(--color-stone-500);
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--color-orange-500); }
+
+  .footer-note {
+    font-size: 0.8125rem;
+    color: var(--color-stone-400);
+  }
+</style>
