@@ -1,10 +1,10 @@
 # Pavillion Site
 
-The marketing and explainer site for [Pavillion](https://pavillion.events) — a decentralized community events calendar built on ActivityPub.
+The marketing and explainer site for [Pavillion](https://pavillion.social) — a decentralized community events calendar built on ActivityPub.
 
 This site introduces Pavillion to event organizers, community curators, and anyone looking to build an interconnected local events ecosystem. It covers what Pavillion does, who it's for, and how it works.
 
-- **Live site:** [pavillion.events](https://pavillion.events)
+- **Live site:** [pavillion.social](https://pavillion.social)
 - **Demo:** [demo.pavillion.events](https://demo.pavillion.events)
 - **Docs:** [docs.pavillion.dev](https://docs.pavillion.dev)
 
