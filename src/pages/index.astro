@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import calendarScreenshot from '../assets/calendar_screenshot.png';
+import appScreenshot from '../assets/app_screenshot.png';
 ---
 
 <Layout>
@@ -46,12 +48,7 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Visual proof: hero screenshot -->
     <div class="container hero-visual-container">
-      <div class="placeholder-visual placeholder-visual--hero">
-        <div class="placeholder-label">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Screenshot: public calendar view — month layout with event cards
-        </div>
-      </div>
+      <img src={calendarScreenshot.src} alt="Public calendar view showing month layout with event cards" class="screenshot screenshot--hero" />
     </div>
   </section>
 
@@ -103,15 +100,10 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- ════ VISUAL PROOF: widget embed ════ -->
+  <!-- ════ VISUAL PROOF: event management ════ -->
   <section class="visual-break">
     <div class="container">
-      <div class="placeholder-visual placeholder-visual--widget">
-        <div class="placeholder-label">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Screenshot: the embeddable widget on a community website — showing how it looks as a natural part of someone else's page
-        </div>
-      </div>
+      <img src={appScreenshot.src} alt="Event creation and calendar management interface" class="screenshot" />
     </div>
   </section>
 
@@ -157,18 +149,6 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ VISUAL PROOF: event management ════ -->
-  <section class="visual-break visual-break--alt">
-    <div class="container">
-      <div class="placeholder-visual placeholder-visual--admin">
-        <div class="placeholder-label">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Screenshot: event creation or calendar management interface — showing the organizer experience
-        </div>
       </div>
     </div>
   </section>
@@ -368,52 +348,15 @@ import Layout from '../layouts/Layout.astro';
     background: var(--color-stone-100);
   }
 
-  /* ── Placeholder visuals ── */
-  .placeholder-visual {
-    border: 2px dashed var(--color-stone-300);
+  /* ── Screenshots ── */
+  .screenshot {
+    width: 100%;
     border-radius: var(--radius-2xl);
-    background:
-      linear-gradient(135deg, var(--color-stone-100) 25%, transparent 25%),
-      linear-gradient(225deg, var(--color-stone-100) 25%, transparent 25%),
-      linear-gradient(315deg, var(--color-stone-100) 25%, transparent 25%),
-      linear-gradient(45deg, var(--color-stone-100) 25%, transparent 25%);
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   }
 
-  .placeholder-visual--hero {
-    height: 22rem;
+  .screenshot--hero {
     margin-top: 3rem;
-  }
-
-  .placeholder-visual--widget {
-    height: 18rem;
-  }
-
-  .placeholder-visual--admin {
-    height: 16rem;
-  }
-
-  .placeholder-label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-stone-400);
-    background: rgba(250, 250, 249, 0.9);
-    padding: 0.75rem 1.25rem;
-    border-radius: var(--radius-lg);
-    max-width: 36rem;
-    text-align: center;
-    line-height: 1.4;
-  }
-
-  .placeholder-label svg {
-    flex-shrink: 0;
   }
 
   /* ── Nav ── */
@@ -576,10 +519,6 @@ import Layout from '../layouts/Layout.astro';
   .visual-break {
     padding: 3rem 0;
     background: #fff;
-  }
-
-  .visual-break--alt {
-    background: var(--color-stone-50);
   }
 
   /* ── Use Cases ── */
