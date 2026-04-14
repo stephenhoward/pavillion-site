@@ -14,7 +14,9 @@ import SiteNav from '../components/SiteNav.astro';
 
   <script is:inline async src="https://demo.pavillion.events/widget/pavillion-widget.js"></script>
   <script is:inline>
-    window.Pavillion = window.Pavillion || { q: [] };
+    window.Pavillion = window.Pavillion || function () {
+      (window.Pavillion.q = window.Pavillion.q || []).push(arguments);
+    };
     Pavillion('init', {
       calendar: 'mitown',
       container: '#calendar-widget',
