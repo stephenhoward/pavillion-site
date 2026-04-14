@@ -1,32 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
 import calendarScreenshot from '../assets/calendar_screenshot.png';
 import appScreenshot from '../assets/app_screenshot.png';
 ---
 
 <Layout>
-  <!-- ════ NAV ════ -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-brand">
-        <svg class="nav-logo" viewBox="0 0 159 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g transform="translate(-93.877,-110.336)">
-            <g transform="matrix(0.5,0,0,0.5,86.6025,150)"><path d="M179.912,111.617L325.153,195.472C307.246,198.696 279.296,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
-            <g transform="matrix(-0.5,-6.12323e-17,6.12323e-17,-0.5,259.808,250)"><path d="M179.912,111.617L325.153,195.472C307.246,198.696 279.296,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
-            <g transform="matrix(-0.25,-0.433013,0.433013,-0.25,173.205,300)"><path d="M179.912,111.617L325.153,195.472C307.248,198.696 279.297,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
-            <g transform="matrix(0.25,-0.433013,0.433013,0.25,86.6025,250)"><path d="M179.912,111.617L325.153,195.472C307.246,198.696 279.296,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
-            <g transform="matrix(0.25,0.433013,-0.433013,0.25,173.205,100)"><path d="M179.912,111.617L325.153,195.472C307.248,198.696 279.297,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
-            <g transform="matrix(-0.25,0.433013,-0.433013,-0.25,259.808,150)"><path d="M179.912,111.617L325.153,195.472C307.246,198.696 279.296,206.63 245.756,226.088C211.378,246.032 191.207,265.146 179.913,278.534L179.912,111.617Z" fill="currentColor"/></g>
-          </g>
-        </svg>
-        <span class="nav-wordmark">Pavillion</span>
-      </a>
-      <div class="nav-links">
-        <a href="#for-whom" class="nav-link">Is it for me?</a>
-        <a href="https://demo.pavillion.events/view/mitown" class="nav-link nav-link-demo">See the demo</a>
-      </div>
-    </div>
-  </nav>
+  <SiteNav />
 
   <!-- ════ HERO ════ -->
   <section class="hero">
@@ -357,69 +337,6 @@ import appScreenshot from '../assets/app_screenshot.png';
 
   .screenshot--hero {
     margin-top: 3rem;
-  }
-
-  /* ── Nav ── */
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    background: rgba(250, 250, 249, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--color-stone-200);
-  }
-
-  .nav-inner {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0.875rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .nav-logo {
-    width: 1.6rem;
-    height: auto;
-    color: var(--color-orange-500);
-  }
-
-  .nav-wordmark {
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--color-stone-800);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 1.75rem;
-    align-items: center;
-  }
-
-  .nav-link {
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--color-stone-600);
-    transition: color 0.15s;
-  }
-  .nav-link:hover {
-    color: var(--color-orange-500);
-  }
-
-  .nav-link-demo {
-    color: var(--color-orange-500);
-    font-weight: 600;
-  }
-  .nav-link-demo:hover {
-    color: var(--color-orange-600);
   }
 
   /* ── Hero ── */

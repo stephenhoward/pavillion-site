@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+
+<Layout title="Pavillion Widget Demo">
+  <SiteNav />
+
+  <main class="widget-page">
+    <div class="widget-container">
+      <div id="calendar-widget"></div>
+    </div>
+  </main>
+
+  <script is:inline async src="https://demo.pavillion.events/widget/pavillion-widget.js"></script>
+  <script is:inline>
+    window.Pavillion = window.Pavillion || { q: [] };
+    Pavillion('init', {
+      calendar: 'mitown',
+      container: '#calendar-widget',
+      view: 'week',
+      accentColor: '#669c35',
+      colorMode: 'auto'
+    });
+  </script>
+</Layout>
+
+<style>
+  .widget-page {
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .widget-container {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+</style>
