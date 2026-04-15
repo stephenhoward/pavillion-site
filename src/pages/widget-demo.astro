@@ -14,15 +14,10 @@ import SiteNav from '../components/SiteNav.astro';
 
   <script is:inline async src="https://demo.pavillion.events/widget/pavillion-widget.js"></script>
   <script is:inline>
-    window.Pavillion = window.Pavillion || function () {
-      (window.Pavillion.q = window.Pavillion.q || []).push([].slice.call(arguments));
-    };
+    window.Pavillion = window.Pavillion || function(){(window.Pavillion.q=window.Pavillion.q||[]).push([].slice.call(arguments))};
     Pavillion('init', {
       calendar: 'mitown',
-      container: '#calendar-widget',
-      view: 'week',
-      accentColor: '#669c35',
-      colorMode: 'auto'
+      container: '#calendar-widget'
     });
   </script>
 </Layout>
