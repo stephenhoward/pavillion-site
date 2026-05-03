@@ -6,7 +6,7 @@ This site introduces Pavillion to event organizers, community curators, and anyo
 
 - **Live site:** [pavillion.social](https://pavillion.social)
 - **Demo:** [demo.pavillion.events](https://demo.pavillion.events)
-- **Docs:** [docs.pavillion.dev](https://docs.pavillion.dev)
+- **Docs:** [docs.pavillion.social](https://docs.pavillion.social)
 
 ## Tech
 
