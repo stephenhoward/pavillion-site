@@ -1,0 +1,26 @@
+{
+  "name": "pavillion-site-motion",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Remotion prototypes for the pavillion.social looping clips. Separate from the Astro build.",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:preview": "node scripts/render-preview.mjs",
+    "scroll-proto": "node scroll-proto/serve.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.542",
+    "lucide-react": "0.577.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@remotion/player": "4.0.542",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "esbuild": "0.28.1",
+    "typescript": "7.0.2"
+  }
+}

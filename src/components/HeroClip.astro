@@ -1,0 +1,189 @@
+---
+/*
+ * Home page hero clip: region 1 of motion/ (src/region1/CommunityCalendar.tsx), rendered into
+ * public/clips/ (hero.mp4, hero-final.jpg, hero-final-phone.jpg; commands in motion/README.md).
+ * - Starts empty (no poster; the clip's first frames are the bare stage) so the headline is
+ *   read first. Plays once (muted, inline) after the visitor scrolls, when half of it is in
+ *   view, then holds. Fallback: plays anyway after FALLBACK_MS if it is in view and the
+ *   visitor hasn't scrolled.
+ * - Scroll brake, once: scrolling down past the point where the clip sits centred in the
+ *   viewport stops there for HOLD_MS (longer while a trackpad/wheel fling is still
+ *   coasting, up to HOLD_MAX_MS), then scrolling is free again. It doesn't wait for the
+ *   clip to finish. Skipped if the clip has already ended or the page loads below it.
+ * - On end, a still of the final frame (JPEG, sharper than the video's last frame) fades in over it.
+ * - Under 640 px the desktop+phone pair is too small to read, so on end it zooms to the
+ *   phone in the final frame (box grows to the phone's shape) and holds a 2x crop of it.
+ * - prefers-reduced-motion: no playback; the final still (or the phone crop under 640 px).
+ */
+---
+
+<div class="mclip" data-mclip role="img"
+  aria-label="An event card for a seed swap comes together, then joins other local events on a town's community calendar, shown in a desktop browser and on a phone.">
+  <video class="mclip-video" src="/clips/hero.mp4"
+    width="1536" height="1008" muted playsinline preload="auto" aria-hidden="true"></video>
+  <img class="mclip-final" src="/clips/hero-final.jpg" width="1536" height="1008" alt="" aria-hidden="true" />
+  <img class="mclip-phone" src="/clips/hero-final-phone.jpg" width="844" height="1696" alt="" aria-hidden="true" loading="lazy" />
+</div>
+
+<script is:inline>
+  (() => {
+    // Phone in the final frame, in composition px (1536×1008): src/region1 PHONE (995, 114, 389×816) plus a 16 px margin.
+    const CROP = { x: 979, y: 98, w: 422, h: 848 };
+    const FULL = { w: 1536, h: 1008 };
+    const box = document.querySelector('[data-mclip]');
+    if (!box) return;
+    const video = box.querySelector('video');
+    const narrow = matchMedia('(max-width: 639px)');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
+      || new URLSearchParams(location.search).get('motion') === 'reduce';
+    let ended = false;
+
+    const fit = () => {
+      const phone = narrow.matches;
+      box.classList.toggle('is-phone', phone && (ended || reduced));
+      box.style.height = phone && (ended || reduced) ? `${box.offsetWidth * CROP.h / CROP.w}px` : `${box.offsetWidth * FULL.h / FULL.w}px`;
+    };
+
+    if (reduced) {
+      box.classList.add('is-still');
+      fit();
+      addEventListener('resize', fit);
+      return;
+    }
+
+    fit();
+    addEventListener('resize', fit);
+    video.addEventListener('ended', () => {
+      ended = true;
+      box.classList.add('is-ended');
+      requestAnimationFrame(() => { box.classList.add('is-animating'); fit(); });
+    });
+    // Start on scroll: a scroll of SCROLL_PX or more (or a load already scrolled down) arms it,
+    // and it plays once half the clip is in view. A visitor who doesn't scroll gets it after FALLBACK_MS.
+    const SCROLL_PX = 24;
+    const FALLBACK_MS = 6000;
+    let armed = scrollY >= SCROLL_PX;
+    let visible = false;
+    let started = false;
+    const start = () => {
+      if (started || !armed || !visible) return;
+      started = true;
+      io.disconnect();
+      removeEventListener('scroll', onScroll);
+      clearTimeout(fallback);
+      video.play().catch(() => { ended = true; box.classList.add('is-still'); fit(); });
+    };
+    const onScroll = () => { if (scrollY >= SCROLL_PX) { armed = true; start(); } };
+    const io = new IntersectionObserver((entries) => {
+      visible = entries[entries.length - 1].intersectionRatio >= 0.5;
+      start();
+    }, { threshold: [0, 0.5, 1] });
+    io.observe(box);
+    addEventListener('scroll', onScroll, { passive: true });
+    const fallback = setTimeout(() => { armed = true; start(); }, FALLBACK_MS);
+
+    // Scroll brake. The stop: the clip centred in the viewport (or its top 16 px from the
+    // viewport's top if it's taller). While held, the root is overflow: hidden, which blocks
+    // wheel, keys and touch and halts a touch fling; the scrollbar gutter stays so nothing shifts.
+    // Release needs HOLD_MS and then a 200 ms gap in wheel events, so a fling's coasting
+    // events don't carry the page on the moment it's let go; HOLD_MAX_MS caps it.
+    const HOLD_MS = 1200;
+    const HOLD_MAX_MS = 2000;
+    const root = document.documentElement;
+    const stopY = () => {
+      const r = box.getBoundingClientRect();
+      const top = r.top + scrollY;
+      return r.height < innerHeight - 32 ? top - (innerHeight - r.height) / 2 : top - 16;
+    };
+    let braked = scrollY > stopY() + 8;
+    let lastY = scrollY;
+    let lastWheel = 0;
+    const onWheel = () => { lastWheel = performance.now(); };
+    const brake = () => {
+      braked = true;
+      removeEventListener('scroll', onBrakeScroll);
+      const y = stopY();
+      const t0 = performance.now();
+      lastWheel = t0;
+      root.style.scrollbarGutter = 'stable';
+      root.style.overflow = 'hidden';
+      scrollTo({ top: y, behavior: 'smooth' }); // settles back from the overshoot
+      addEventListener('wheel', onWheel, { passive: true });
+      const check = () => {
+        const now = performance.now();
+        if (now - t0 >= HOLD_MAX_MS || (now - t0 >= HOLD_MS && now - lastWheel >= 200)) {
+          root.style.overflow = '';
+          root.style.scrollbarGutter = '';
+          removeEventListener('wheel', onWheel);
+        } else requestAnimationFrame(check);
+      };
+      requestAnimationFrame(check);
+    };
+    const onBrakeScroll = () => {
+      const y = scrollY;
+      const down = y > lastY;
+      lastY = y;
+      if (braked || ended) { removeEventListener('scroll', onBrakeScroll); return; }
+      if (down && y >= stopY()) brake();
+    };
+    if (!braked) addEventListener('scroll', onBrakeScroll, { passive: true });
+  })();
+</script>
+
+<style>
+  .mclip {
+    position: relative;
+    overflow: hidden;
+    margin-top: 3rem;
+    width: 100%; /* explicit, or the script-set height would drive the width through aspect-ratio */
+    aspect-ratio: 1536 / 1008;
+    /* no card frame: the clip is rendered on the hero's own colour (stone-50) so it sits flat on the page */
+    background: #FAFAF9;
+  }
+  /* phone zoom: a long, gentle landing (was 0.8 s, cubic-bezier(0.65, 0, 0.35, 1)) */
+  .mclip { --mclip-zoom: 1.1s; --mclip-ease: cubic-bezier(0.55, 0, 0.15, 1); }
+  .mclip.is-animating { transition: height var(--mclip-zoom) var(--mclip-ease); }
+  .mclip-video, .mclip-final {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: none;
+  }
+  .mclip-video { transform-origin: 0 0; }
+  .mclip-final, .mclip-phone { opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+  .mclip-phone { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+
+  /* ended or reduced motion: crisp final still over the preview's last frame */
+  .mclip.is-ended .mclip-final, .mclip.is-still .mclip-final { opacity: 1; }
+
+  @media (max-width: 639px) {
+    .mclip-phone { display: block; }
+    /* zoom the held last frame to the phone: scale k = 1536/422, corner (979, 98) to the box corner.
+       Translate first, then scale (translate = k × 979/1536, k × 98/1008, in % of the element): both
+       interpolate linearly, so every point travels a straight eased line. scale-then-translate made the
+       translate grow with the scale mid-transition and the frame swooped. */
+    .mclip.is-phone .mclip-video, .mclip.is-phone .mclip-final {
+      transform: translate(-231.99%, -35.387%) scale(3.6398);
+      transform-origin: 0 0;
+    }
+    .mclip.is-animating .mclip-video, .mclip.is-animating .mclip-final {
+      transition: transform var(--mclip-zoom) var(--mclip-ease), opacity 0.4s ease;
+    }
+    /* the crop's 16 px margin cuts through the phone's drop shadow; fade the margin out so no box edge shows */
+    .mclip.is-phone {
+      --mclip-fade: 12px;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--mclip-fade), #000 calc(100% - var(--mclip-fade)), transparent),
+        linear-gradient(to bottom, transparent, #000 var(--mclip-fade), #000 calc(100% - var(--mclip-fade)), transparent);
+      -webkit-mask-composite: source-in;
+      mask-image: linear-gradient(to right, transparent, #000 var(--mclip-fade), #000 calc(100% - var(--mclip-fade)), transparent),
+        linear-gradient(to bottom, transparent, #000 var(--mclip-fade), #000 calc(100% - var(--mclip-fade)), transparent);
+      mask-composite: intersect;
+    }
+    /* the 2x phone crop fades in once the zoom has landed */
+    .mclip.is-phone .mclip-phone { opacity: 1; transition-delay: var(--mclip-zoom); }
+    .mclip.is-still.is-phone .mclip-phone { transition: none; }
+  }
+</style>

@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
-import calendarScreenshot from '../assets/calendar_screenshot.png';
-import appScreenshot from '../assets/app_screenshot.png';
+import HeroClip from '../components/HeroClip.astro';
+import StepsSection from '../components/StepsSection.astro';
 ---
 
 <Layout>
@@ -20,15 +20,11 @@ import appScreenshot from '../assets/app_screenshot.png';
         a community calendar, the events come to you — straight from the people
         actually running them.
       </p>
-      <div class="hero-actions">
-        <a href="https://demo.pavillion.events/mitown" class="btn btn-primary">See it in action</a>
-        <a href="#for-whom" class="btn btn-secondary">Is it for me?</a>
-      </div>
     </div>
 
-    <!-- Visual proof: hero screenshot -->
+    <!-- Visual proof: an event joins a town calendar (motion/, region 1) -->
     <div class="container hero-visual-container">
-      <img src={calendarScreenshot.src} alt="Public calendar view showing month layout with event cards" class="screenshot screenshot--hero" />
+      <HeroClip />
     </div>
   </section>
 
@@ -81,12 +77,8 @@ import appScreenshot from '../assets/app_screenshot.png';
     </div>
   </section>
 
-  <!-- ════ VISUAL PROOF: event management ════ -->
-  <section class="visual-break">
-    <div class="container">
-      <img src={appScreenshot.src} alt="Event creation and calendar management interface" class="screenshot" />
-    </div>
-  </section>
+  <!-- ════ VISUAL PROOF: posting an event, scroll-pinned steps (motion/, region 2) ════ -->
+  <StepsSection heading="Posting an event" skipTo="for-whom" />
 
   <!-- ════ USE CASES ════ -->
   <section id="for-whom" class="usecases">
@@ -342,17 +334,6 @@ import appScreenshot from '../assets/app_screenshot.png';
     background: var(--color-stone-100);
   }
 
-  /* ── Screenshots ── */
-  .screenshot {
-    width: 100%;
-    border-radius: var(--radius-2xl);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-  }
-
-  .screenshot--hero {
-    margin-top: 3rem;
-  }
-
   /* ── Hero ── */
   .hero {
     padding: 6rem 0 2rem;
@@ -381,13 +362,6 @@ import appScreenshot from '../assets/app_screenshot.png';
     font-size: 1.125rem;
     line-height: 1.6;
     color: var(--color-stone-600);
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
   }
 
   .hero-visual-container {
@@ -444,12 +418,6 @@ import appScreenshot from '../assets/app_screenshot.png';
     font-size: 0.9375rem;
     line-height: 1.6;
     color: var(--color-stone-600);
-  }
-
-  /* ── Visual break sections ── */
-  .visual-break {
-    padding: 3rem 0;
-    background: #fff;
   }
 
   /* ── Use Cases ── */

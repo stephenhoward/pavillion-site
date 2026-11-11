@@ -1,0 +1,30 @@
+---
+/*
+ * Home page "Posting an event" section: mount point for the region 2 scroll-pinned steps,
+ * built from motion/site-embed/ into /clips/steps.js (React + @remotion/player).
+ * The static fallback below (heading, plus the final still without JS) stays if the script is
+ * blocked or fails to load; the script replaces it. A runtime error inside it renders nothing. The script's CSS is scoped under .pvs.
+ */
+interface Props {
+  heading: string;
+  after?: string;
+  skipTo: string;
+}
+const { heading, after = '', skipTo } = Astro.props;
+---
+
+<div class="steps-section" data-pvs-steps data-heading={heading} data-after={after} data-skip-to={skipTo}>
+  <section class="pvs-fallback">
+    <h2 class="section-heading">{heading}</h2>
+    <noscript><img src="/clips/steps-end.jpg" width="960" height="1008" alt="A phone showing a newly posted seed swap event on a community garden's calendar, with its photo, date, time, location and categories." /></noscript>
+    {after && <p>{after}</p>}
+  </section>
+</div>
+<script type="module" src="/clips/steps.js" is:inline></script>
+
+<style>
+  .steps-section { background: #F5F5F4; }
+  .pvs-fallback { max-width: 32rem; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
+  .pvs-fallback img { width: 100%; height: auto; margin: 0 auto; }
+  .pvs-fallback p { margin-top: 1.5rem; color: var(--color-stone-600); }
+</style>
