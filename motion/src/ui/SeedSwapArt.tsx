@@ -13,7 +13,7 @@
 import React from 'react';
 import { Img, staticFile } from 'remotion';
 
-export const SEED_SWAP_PHOTO = 'images/seed-swap.jpg';
+export const SEED_SWAP_PHOTO = 'clips/images/seed-swap.jpg';
 /** Focal point used for the public cards and where the region 2 drag ends. */
 export const SEED_SWAP_FOCAL = { x: 0.55, y: 0.25 };
 

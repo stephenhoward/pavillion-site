@@ -5,8 +5,9 @@
 // can't collide with the site's own 'Creato Display' faces (the site maps Bold.otf to
 // 700; the app maps it to 600 and ExtraBold.otf to 700):
 //   - family 'Creato Display' -> 'Pavillion App Creato' (tokens.ts, fonts.ts)
-//   - font URLs -> the site's identical /fonts/*.otf (already cached by the page),
-//     except ExtraBold, which the site lacks -> /clips/fonts/
+// Font and photo URLs need no rewrite: staticFile() resolves against the site root, and
+// Remotion's public dir is the site's public/ (remotion.config.ts), so /fonts/ and
+// /clips/images/ are the same files in the clip and on the page.
 import * as esbuild from 'esbuild';
 import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
@@ -33,8 +34,6 @@ const isolateFonts = {
         src = swap(src, `"'Creato Display',`, `"'${FAMILY}',`, args.path);
       } else {
         src = swap(src, `new FontFace('Creato Display'`, `new FontFace('${FAMILY}'`, args.path);
-        src = swap(src, 'staticFile(`fonts/creato_display/${file}`)',
-          "(file === 'CreatoDisplay-ExtraBold.otf' ? `/clips/fonts/${file}` : `/fonts/${file}`)", args.path);
       }
       return { contents: src, loader: 'ts' };
     });

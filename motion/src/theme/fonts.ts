@@ -6,7 +6,7 @@
  * Adapted from the Pavillion app's src/common/ui/assets/fonts.scss, keeping its
  * file-to-weight mapping (Bold.otf is 600, ExtraBold.otf is 700). The font files
  * are Creato Display, under the SIL Open Font License
- * (public/fonts/creato_display/SIL OPEN FONT LICENSE.txt).
+ * (the site's public/fonts/SIL OPEN FONT LICENSE.txt; the files are the site's own, see remotion.config.ts).
  */
 import { continueRender, delayRender, staticFile } from 'remotion';
 
@@ -25,7 +25,7 @@ export function loadAppFonts(): void {
   const handle = delayRender('Loading Creato Display');
   Promise.all(
     FACES.map(([file, weight]) => {
-      const face = new FontFace('Creato Display', `url(${staticFile(`fonts/creato_display/${file}`)}) format('opentype')`, { weight });
+      const face = new FontFace('Creato Display', `url(${staticFile(`fonts/${file}`)}) format('opentype')`, { weight });
       document.fonts.add(face);
       return face.load();
     }),

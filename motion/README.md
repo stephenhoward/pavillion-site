@@ -113,8 +113,13 @@ sips -s format jpeg -s formatOptions 82 out/r2-crop.png --out ../public/clips/st
 - The bundle registers the clip's fonts as `'Pavillion App Creato'` (rewritten
   at build time; `src/theme` is untouched), because the site maps Bold.otf to
   700 and the app maps it to 600; the same family name would change the site's
-  headings. Regular/Medium/Bold load from the site's `/fonts/`; ExtraBold from
-  `/clips/fonts/`. Event photos load from `/clips/images/` (copies of `public/images/`).
+  headings. All four weights load from the site's `/fonts/`; no font URLs are rewritten.
+- Static files: Remotion's public dir is the site's `public/` (`remotion.config.ts`,
+  `Config.setPublicDir('../public')`), so the repo has one copy of each file: fonts in
+  `public/fonts/` (the site's own set, ExtraBold added for the app's 700 weight), event
+  photos in `public/clips/images/`. `staticFile()` paths are `fonts/…` and
+  `clips/images/…`; in the steps bundle they resolve against the site root, and the
+  scroll prototype server serves the same folders. Run Remotion commands from `motion/`.
 - The Player sits in an `all: initial` box (`.pvs-iso`) so the site's reset and
   inherited text styles don't reach the clip.
 - Backgrounds: both compositions take an optional `background` prop (default
@@ -133,7 +138,7 @@ sips -s format jpeg -s formatOptions 82 out/r2-crop.png --out ../public/clips/st
 ### Seed Swap photo (2026-11-10)
 
 `src/ui/SeedSwapArt.tsx` now shows a photo by Jael Rodriguez on Unsplash
-(`public/images/seed-swap.jpg`, 800×1200, from
+(site `public/clips/images/seed-swap.jpg`, 800×1200, from
 Unsplash photo `hp6vX7SvrCs`). The illustration is kept as
 `SeedSwapIllustration.tsx`. Focal point (0.55, 0.25), the seedling hand-off,
 is `SEED_SWAP_FOCAL`; the region 2 focal drag now ends there. A small brand mark
@@ -236,7 +241,7 @@ The sections below are the working notes for whoever continues.
   clip to end. The phone zoom's landing is slower: 1.1 s, `cubic-bezier(0.55, 0, 0.15, 1)`
   (was 0.8 s, `cubic-bezier(0.65, 0, 0.35, 1)`).
   Event photos (2026-11-11): Varsity Basketball and Live Music Friday have Unsplash
-  photos (Gene Gallin; Israel Palacio), 1200×800 in `public/images/`, wired through
+  photos (Gene Gallin; Israel Palacio), 1200×800 in the site's `public/clips/images/`, wired through
   `src/ui/EventPhotos.tsx` (credits, focal points) and the `image` field in
   `src/data/larkspur.ts`. Both show a maker's brand mark (the ball's wordmark; a badge
   on the microphone grille). Then Bird Walk (Nicky Jones), Saturday Market (Thomas Le),
@@ -252,7 +257,7 @@ The sections below are the working notes for whoever continues.
   icons and strings. Never modify it.
 - Keep the MPL-2.0 notice on every file derived from the app (tokens, fonts
   loader, icons, the UI recreations). Fonts are Creato Display under SIL OFL
-  (`public/fonts/creato_display/`).
+  (the site's `public/fonts/`, with its licence file).
 - Only the fictional Larkspur Bend names from the storyboard. Invent no UI the
   app doesn't have. Overlays (tap marks, dashed ring + lens, source tags and
   colour bars) use a deliberately different visual language and must keep
@@ -296,8 +301,8 @@ The sections below are the working notes for whoever continues.
   on the room-name field (unknown whether it autofocuses); upload
   progress/success overlay skipped; light theme only; device and browser
   chrome are plain and unbranded.
-- The Seed Swap image is an original placeholder illustration
-  (`src/ui/SeedSwapArt.tsx`), not a photo.
+- Event photos are Unsplash stock (credits in `src/ui/EventPhotos.tsx` and
+  `src/ui/SeedSwapArt.tsx`), standing in for organisers' own photos.
 
 ## Storyboard vs. the real app
 
@@ -332,7 +337,7 @@ The sections below are the working notes for whoever continues.
   room" (`TEXTS` = `LINES` + held lines). The lines are bottom-aligned in their shared
   grid cell, since the held line wraps to two lines and would otherwise leave a gap
   above the scroll cue on every step.
-- Site steps section copy (2026-11-11, placeholder): one phrase per step, set at heading
+- Site steps section copy (2026-11-11): one phrase per step, set at heading
   size, no separate visible heading. `data-heading` is now a screen-reader-only heading
   ("Posting an event"). Lines: Posting an event is quick / Let people know where to be /
   Down to the room / Add a picture / Add categories / Pick the date and time / Save. It's
@@ -340,10 +345,11 @@ The sections below are the working notes for whoever continues.
 - Final-frame checks against live screenshots of the demo instance (storyboard
   checks 1–3); region 1's waits until the town calendar shows the organisers'
   events.
-- Replace the placeholder image with a photo we own or that is openly licensed
-  (check 4).
-- WebM output, full-resolution renders, and page integration (autoplay muted
-  loop playsinline, poster under `prefers-reduced-motion`, alt text) — page
-  copy and alt text are the Herald's to draft.
-- The site's root `tsconfig.json` includes `**/*`, so `astro check` (not
-  `astro build`) also type-checks this folder. Left unchanged.
+- Scroll hold on the hero: verified with wheel/trackpad input; still to try with a
+  real touch fling in iOS Safari.
+- WebM output (the hero ships H.264 MP4 only).
+- Several photos show small maker brand marks (the glove, the basketball's wordmark,
+  a badge on a microphone grille).
+- `src/assets/calendar_screenshot.png` and `app_screenshot.png` in the site are no
+  longer used by the home page.
+- The site's root `tsconfig.json` now excludes `motion/` (it has its own).

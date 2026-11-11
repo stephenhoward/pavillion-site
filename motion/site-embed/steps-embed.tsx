@@ -23,8 +23,7 @@ import { CreateEvent, R2 } from '../src/region2/CreateEvent';
 import { STEPS, LINES, TEXTS, lineIndex, CROP_W, COMP_H } from '../scroll-proto/steps';
 import { CSS } from './styles';
 
-// staticFile() (the Seed Swap photo) resolves under the site's /clips/ folder. Fonts don't use it (build.mjs).
-(window as unknown as { remotion_staticBase: string }).remotion_staticBase = '/clips';
+// staticFile() (fonts, event photos) resolves against the site root: /fonts/…, /clips/images/….
 
 type Variant = 'scrub' | 'steps';
 type Config = { heading: string; after: string; skipTo: string };

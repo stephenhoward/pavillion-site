@@ -34,7 +34,8 @@ createServer(async (req, res) => {
   let file;
   if (path === '/' || path === '/index.html') file = join(HERE, 'index.html');
   else if (path === '/main.js' || path === '/main.js.map') file = join(OUT, path.slice(1));
-  else if (path.startsWith('/fonts/') || path.startsWith('/images/')) file = join(ROOT, 'public', normalize(path).replace(/^(\.\.[/\\])+/, ''));
+  // fonts and photos come from the site's public/ folder (Remotion's public dir, remotion.config.ts)
+  else if (path.startsWith('/fonts/') || path.startsWith('/clips/images/')) file = join(ROOT, '..', 'public', normalize(path).replace(/^(\.\.[/\\])+/, ''));
   if (!file) { res.writeHead(404).end('not found'); return; }
   try {
     const body = await readFile(file);
