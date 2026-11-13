@@ -3,9 +3,8 @@
  * Home page hero clip: region 1 of motion/ (src/region1/CommunityCalendar.tsx), rendered into
  * public/clips/ (hero.mp4, hero-final.jpg, hero-final-phone.jpg; commands in motion/README.md).
  * - Starts empty (no poster; the clip's first frames are the bare stage) so the headline is
- *   read first. Plays once (muted, inline) after the visitor scrolls, when half of it is in
- *   view, then holds. Fallback: plays anyway after FALLBACK_MS if it is in view and the
- *   visitor hasn't scrolled.
+ *   read first. Plays once (muted, inline) only after the visitor scrolls, when half of it
+ *   is in view, then holds. No timed fallback: a visitor who never scrolls sees the bare stage.
  * - Scroll brake, once: scrolling down past the point where the clip sits centred in the
  *   viewport stops there for HOLD_MS (longer while a trackpad/wheel fling is still
  *   coasting, up to HOLD_MAX_MS), then scrolling is free again. It doesn't wait for the
@@ -59,9 +58,8 @@
       requestAnimationFrame(() => { box.classList.add('is-animating'); fit(); });
     });
     // Start on scroll: a scroll of SCROLL_PX or more (or a load already scrolled down) arms it,
-    // and it plays once half the clip is in view. A visitor who doesn't scroll gets it after FALLBACK_MS.
+    // and it plays once half the clip is in view. Nothing starts it without a scroll.
     const SCROLL_PX = 24;
-    const FALLBACK_MS = 6000;
     let armed = scrollY >= SCROLL_PX;
     let visible = false;
     let started = false;
@@ -70,7 +68,6 @@
       started = true;
       io.disconnect();
       removeEventListener('scroll', onScroll);
-      clearTimeout(fallback);
       video.play().catch(() => { ended = true; box.classList.add('is-still'); fit(); });
     };
     const onScroll = () => { if (scrollY >= SCROLL_PX) { armed = true; start(); } };
@@ -80,7 +77,6 @@
     }, { threshold: [0, 0.5, 1] });
     io.observe(box);
     addEventListener('scroll', onScroll, { passive: true });
-    const fallback = setTimeout(() => { armed = true; start(); }, FALLBACK_MS);
 
     // Scroll brake. The stop: the clip centred in the viewport (or its top 16 px from the
     // viewport's top if it's taller). While held, the root is overflow: hidden, which blocks

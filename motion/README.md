@@ -231,7 +231,7 @@ The sections below are the working notes for whoever continues.
   crop (now 48–72), so `E` = 60, `D` = 132, the clip is 492 frames (16.4 s), and the
   final frame is 491. On the site (`HeroClip.astro`) the video has no poster, so the box
   stays empty until it plays; it plays once the visitor has scrolled 24 px and half the
-  clip is in view, or after 6 s with no scroll. The under-640px zoom to the phone was
+  clip is in view (no timed fallback: it never starts without a scroll). The under-640px zoom to the phone was
   `scale() translate()`, which swooped mid-transition; it is now `translate() scale()`
   (same end state), a straight eased move (checked: the phone's centre stays within
   0.1 px of a straight line).
