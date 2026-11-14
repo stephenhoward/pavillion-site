@@ -5,7 +5,7 @@ The marketing and explainer site for [Pavillion](https://pavillion.social) — a
 This site introduces Pavillion to event organizers, community curators, and anyone looking to build an interconnected local events ecosystem. It covers what Pavillion does, who it's for, and how it works.
 
 - **Live site:** [pavillion.social](https://pavillion.social)
-- **Demo:** [demo.pavillion.events](https://demo.pavillion.events)
+- **Demo:** [pavillion.events/larkspur-bend](https://pavillion.events/larkspur-bend)
 - **Docs:** [docs.pavillion.social](https://docs.pavillion.social)
 
 ## Tech
