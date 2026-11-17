@@ -3,11 +3,14 @@ const SHOW_UNSHIPPED = false; // three features not yet shipped; keep false unti
 
 import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
+
+const screenshotAlt =
+  "A library's public events calendar on Pavillion: the library's name and description, a search box, category filters, and upcoming events listed by day, each with a photo, time, room and category.";
 ---
 
 <Layout
-  title="For organizers · Pavillion"
-  description="Your organization's own public events calendar. Post once, share one link, bring your events in from any calendar."
+  title="A public events calendar for your organization · Pavillion"
+  description="A free public events calendar for your organization. Post your events, share one link, and bring in what you already have from Google Calendar or any ICS calendar."
 >
   <SiteNav />
 
@@ -15,27 +18,31 @@ import SiteNav from '../components/SiteNav.astro';
     <!-- ════ HERO ════ -->
     <section class="hero">
       <div class="container">
-        <h1 class="hero-heading">A calendar of your own.</h1>
+        <h1 class="hero-heading">A public calendar for your events.</h1>
         <p class="hero-sub">
-          Pavillion gives your organization a public events calendar that's yours.
-          Post your events once, share one link, and anyone can see what you've got
-          coming up. No account needed to look, nothing to install.
+          Pavillion gives your library, nonprofit, church, neighborhood group or venue
+          its own events calendar on the web. Post your events, share one link, and
+          anyone can see what's coming up. It's free, and the people looking don't
+          need an account.
         </p>
         <div class="actions">
           <a href="https://pavillion.events" class="btn btn-primary">Apply for a free account</a>
-          <a href="https://pavillion.events/larkspur-library" class="btn btn-secondary">See an organizer's calendar</a>
+          <a href="https://pavillion.events/larkspur-library" class="btn btn-secondary">See an example calendar</a>
         </div>
+
+        <figure class="shot">
+          <picture>
+            <source media="(max-width: 639px)" srcset="/organizers/larkspur-library-phone.jpg" width="780" height="1560" />
+            <img src="/organizers/larkspur-library-desktop.jpg" width="1800" height="1560" alt={screenshotAlt} />
+          </picture>
+        </figure>
       </div>
     </section>
 
-    <!-- ════ USEFUL ON DAY ONE ════ -->
-    <section class="dayone">
+    <!-- ════ WHAT YOU GET ════ -->
+    <section class="get">
       <div class="container">
-        <h2 class="section-heading section-heading-tight">Useful on day one</h2>
-        <p class="section-intro">
-          You don't need anyone else on Pavillion for this to work. On its own, your
-          calendar gives you:
-        </p>
+        <h2 class="section-heading">What you get</h2>
         <div class="card-row">
 
           <div class="feature-card">
@@ -43,11 +50,12 @@ import SiteNav from '../components/SiteNav.astro';
               <!-- link -->
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             </div>
-            <h3 class="feature-title">A public page at your own address.</h3>
+            <h3 class="feature-title">A page at your own address.</h3>
             <p class="feature-desc">
               Your calendar lives at pavillion.events/your-name, with list, week and
-              month views. Share that one link on your flyers, your newsletter and
-              your social posts.
+              month views. Put that one link on your flyers, your newsletter and your
+              social posts. When someone shares an event, the preview shows its picture
+              and description.
             </p>
           </div>
 
@@ -58,9 +66,8 @@ import SiteNav from '../components/SiteNav.astro';
             </div>
             <h3 class="feature-title">Easy posting, including repeats.</h3>
             <p class="feature-desc">
-              One-time or recurring events, images, categories, and places down to
-              the room ("Community Room, second floor"). Post from your phone or
-              your desk.
+              One-time or recurring events, images, categories, and places down to the
+              room ("Community Room, second floor"). Post from your phone or your desk.
             </p>
           </div>
 
@@ -69,34 +76,10 @@ import SiteNav from '../components/SiteNav.astro';
               <!-- users -->
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <h3 class="feature-title">More than one pair of hands.</h3>
+            <h3 class="feature-title">Share the work.</h3>
             <p class="feature-desc">
-              Invite other people to help edit your calendar, so it isn't all on
-              one person.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <!-- share-2 -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            </div>
-            <h3 class="feature-title">Links that look good when shared.</h3>
-            <p class="feature-desc">
-              When someone shares one of your events, the preview shows its picture
-              and its description.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <!-- at-sign (fediverse) -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
-            </div>
-            <h3 class="feature-title">Follow from the fediverse.</h3>
-            <p class="feature-desc">
-              People on Mastodon and other fediverse apps can follow your calendar
-              and see your new events in their feed.
+              Invite other people to help edit your calendar, so it isn't all on one
+              person.
             </p>
           </div>
 
@@ -104,36 +87,33 @@ import SiteNav from '../components/SiteNav.astro';
       </div>
     </section>
 
-    <!-- ════ BRING YOUR EVENTS IN ════ -->
-    <section class="bring">
+    <!-- ════ WORKS WITH WHAT YOU ALREADY HAVE ════ -->
+    <section class="fits">
       <div class="container">
-        <h2 class="section-heading section-heading-tight">
-          {SHOW_UNSHIPPED ? 'Bring your events in, take them anywhere' : 'Bring your events with you'}
-        </h2>
+        <h2 class="section-heading section-heading-tight">Works with what you already have</h2>
         {SHOW_UNSHIPPED ? (
           <p class="section-intro">
-            Your events are yours. They come in and go out in ICS, the standard
-            calendar format that Google Calendar, Apple Calendar, Outlook and most
-            website calendars already use.
+            You probably have a calendar or a website already. Pavillion fits in with
+            both, and your events can leave as easily as they came in.
           </p>
         ) : (
           <p class="section-intro">
-            Your events are yours. You can bring them in from ICS, the standard
-            calendar format that Google Calendar, Apple Calendar, Outlook and most
-            website calendars already use.
+            You probably have a calendar or a website already. Pavillion fits in with
+            both.
           </p>
         )}
-        <div class="card-row card-row-pairs">
+        <div class:list={['card-row', { 'card-row-pairs': !SHOW_UNSHIPPED }]}>
 
           <div class="feature-card">
             <div class="feature-icon">
               <!-- upload (import) -->
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
             </div>
-            <h3 class="feature-title">Bring them in.</h3>
+            <h3 class="feature-title">Bring your events over.</h3>
             <p class="feature-desc">
-              Import from any calendar that exports ICS, as a file or from a feed
-              you own, so you don't start from scratch.
+              Import from any calendar that exports the standard ICS format (Google
+              Calendar, Apple Calendar, Outlook and most website calendars do), as a
+              file or from a feed you own. You don't start from scratch.
             </p>
           </div>
 
@@ -145,26 +125,27 @@ import SiteNav from '../components/SiteNav.astro';
               </div>
               <h3 class="feature-title">Keep them in sync.</h3>
               <p class="feature-desc">
-                Already keep your events in Google Calendar or another calendar? With
-                a funding plan, Pavillion checks your feed on a schedule and picks up
+                Already keep your events in Google Calendar or another calendar? With a
+                funding plan, Pavillion checks your feed on a schedule and picks up
                 changes for you.
               </p>
             </div>
           )}
 
-          {SHOW_UNSHIPPED && (
-            <div class="feature-card">
-              <div class="feature-icon">
-                <!-- download (export) -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </div>
-              <h3 class="feature-title">Take them with you.</h3>
-              <p class="feature-desc">
-                Download your calendar as an ICS file whenever you want, free. Moving
-                out is never blocked.
-              </p>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <!-- monitor (embed) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
-          )}
+            <h3 class="feature-title">Show it on your website.</h3>
+            <p class="feature-desc">
+              Add your calendar to your own site with a simple embed code, and pick
+              colors and layout so it looks like part of the site. You post on Pavillion
+              and your website updates itself. Embedding comes with a funding plan ($5 a
+              month or $54 a year).
+            </p>
+            <a href="/widget-demo" class="card-link">See an embedded calendar</a>
+          </div>
 
           {SHOW_UNSHIPPED && (
             <div class="feature-card">
@@ -181,25 +162,19 @@ import SiteNav from '../components/SiteNav.astro';
             </div>
           )}
 
-        </div>
-      </div>
-    </section>
+          {SHOW_UNSHIPPED && (
+            <div class="feature-card">
+              <div class="feature-icon">
+                <!-- download (export) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </div>
+              <h3 class="feature-title">Take them with you.</h3>
+              <p class="feature-desc">
+                Download your calendar as an ICS file whenever you want, free.
+              </p>
+            </div>
+          )}
 
-    <!-- ════ ON YOUR OWN WEBSITE ════ -->
-    <section class="website">
-      <div class="container narrow">
-        <div class="feature-icon">
-          <!-- monitor (embed) -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <h2 class="section-heading section-heading-tight">On your own website</h2>
-        <p class="section-intro">
-          With a funding plan, you can put your calendar right on your own website
-          with a simple embed code. Pick your colors and layout so it looks like part
-          of your site. You post on Pavillion and your website updates itself.
-        </p>
-        <div class="actions">
-          <a href="/widget-demo" class="btn btn-secondary">See an embedded calendar</a>
         </div>
       </div>
     </section>
@@ -259,10 +234,9 @@ import SiteNav from '../components/SiteNav.astro';
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div>
-              <h3 class="extras-title">No ads, no tracking.</h3>
+              <h3 class="extras-title">No tracking, no ads.</h3>
               <p class="extras-desc">
-                We don't sell your audience, and nobody else decides who sees your
-                events.
+                There's no advertising and no data collection.
               </p>
             </div>
           </div>
@@ -271,29 +245,25 @@ import SiteNav from '../components/SiteNav.astro';
       </div>
     </section>
 
-    <!-- ════ COMMUNITY CALENDARS ════ -->
-    <section class="community">
+    <!-- ════ REACH ════ -->
+    <section class="reach">
       <div class="container narrow">
-        <h2 class="section-heading section-heading-tight">And when your town has a community calendar</h2>
+        <h2 class="section-heading section-heading-tight">Reach people beyond your own list</h2>
         <div class="prose">
           <p>
-            A city, library, chamber or neighborhood group can run a community calendar
-            on Pavillion. They follow the organizations they care about, and those
-            organizations' events show up on the community calendar automatically.
+            Other calendars on Pavillion can follow yours. When a town, chamber or
+            neighborhood calendar does, your events show up there automatically, in
+            front of people who have never heard of you. You still post once. If you
+            change or cancel an event, the change shows up everywhere it appears.
           </p>
           <p>
-            If one follows yours, your events reach people who have never heard of you,
-            with no extra work on your part. You post once. When you change an event or
-            cancel it, the change goes everywhere it was shared, because it's still
-            your event.
-          </p>
-          <p>
-            You don't need a community calendar to get started. But if one comes along,
-            you're already on it.
+            Your calendar can follow others too, if you want to gather events from
+            groups around you. And people on Mastodon and similar apps can follow your
+            calendar and see your new events in their feed.
           </p>
         </div>
         <div class="actions">
-          <a href="https://pavillion.events/larkspur-bend" class="btn btn-secondary">See a community calendar in action</a>
+          <a href="https://pavillion.events/larkspur-bend" class="btn btn-secondary">See a community calendar</a>
         </div>
       </div>
     </section>
@@ -302,25 +272,32 @@ import SiteNav from '../components/SiteNav.astro';
     <section class="cost">
       <div class="container narrow">
         <h2 class="section-heading section-heading-tight">What it costs</h2>
-        <p class="section-intro">
-          Your calendar is free, and so is everything above that isn't marked "with a
-          funding plan". A funding plan helps keep the service running and adds{' '}
-          {SHOW_UNSHIPPED
-            ? 'embedding on your website, scheduled imports and a subscription feed.'
-            : 'embedding on your website.'}
-        </p>
-        <div class="actions">
-          <a href="/#faq" class="btn btn-secondary">See pricing</a>
-        </div>
+        {SHOW_UNSHIPPED ? (
+          <p class="section-intro">
+            Your calendar is free: the page, posting, importing, downloading your
+            events and inviting helpers. A funding plan is $5 a month or $54 a year per
+            calendar. It helps keep the service running and adds embedding on your
+            website, scheduled imports and a subscription link. Pavillion is open
+            source, so you can also run your own copy.
+          </p>
+        ) : (
+          <p class="section-intro">
+            Your calendar is free: the page, posting, importing and inviting helpers. A
+            funding plan is $5 a month or $54 a year per calendar. It helps keep the
+            service running and adds embedding on your website. Pavillion is open
+            source, so you can also run your own copy.
+          </p>
+        )}
       </div>
     </section>
 
     <!-- ════ CTA ════ -->
     <section class="cta">
       <div class="container">
-        <h2 class="cta-heading">Ready to try it?</h2>
+        <h2 class="cta-heading">Start your calendar</h2>
         <p class="cta-sub">
-          If you'd like a hand setting up or bringing your events over, <a href="mailto:hello@pavillion.social" class="inline-link">get in touch</a> and we'll help.
+          We're onboarding early communities now and review every application. If you'd
+          like a hand setting up or bringing your events over, <a href="mailto:hello@pavillion.social" class="inline-link">get in touch</a> and we'll help.
         </p>
         <div class="actions">
           <a href="https://pavillion.events" class="btn btn-primary">Apply for a free account</a>
@@ -390,6 +367,8 @@ import SiteNav from '../components/SiteNav.astro';
     color: var(--color-stone-600);
   }
 
+  .cost .section-intro { margin-bottom: 0; }
+
   .actions {
     display: flex;
     gap: 1rem;
@@ -397,12 +376,21 @@ import SiteNav from '../components/SiteNav.astro';
     flex-wrap: wrap;
   }
 
-  .inline-link {
+  .inline-link,
+  .card-link {
     color: var(--color-orange-600);
     text-decoration: underline;
     text-underline-offset: 2px;
   }
-  .inline-link:hover { color: var(--color-orange-500); }
+  .inline-link:hover,
+  .card-link:hover { color: var(--color-orange-500); }
+
+  .card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
 
   /* ── Buttons ── */
   .btn {
@@ -471,22 +459,41 @@ import SiteNav from '../components/SiteNav.astro';
     color: var(--color-stone-600);
   }
 
-  /* ── Section backgrounds ── */
-  .dayone,
-  .website,
-  .community,
+  /* Screenshot of an organizer's calendar: fades out at the bottom so it reads as a page that continues. */
+  .shot {
+    margin: 3.5rem auto 0;
+    max-width: 18rem;
+    border: 1px solid var(--color-stone-200);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 30px -10px rgb(0 0 0 / 15%), 0 4px 6px -4px rgb(0 0 0 / 8%);
+  }
+
+  @media (min-width: 640px) {
+    .shot { max-width: 56rem; }
+  }
+
+  .shot img {
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent);
+    mask-image: linear-gradient(to bottom, #000 75%, transparent);
+  }
+
+  /* ── Section backgrounds (alternating) ── */
+  .get,
+  .extras,
   .cost {
     padding: 5rem 0;
     background: #fff;
   }
 
-  .bring,
-  .extras {
+  .fits,
+  .reach {
     padding: 5rem 0;
     background: var(--color-stone-50);
   }
-
-  .cost { border-top: 1px solid var(--color-stone-200); }
 
   /* ── Cards (home page .feature-card) ── */
   .card-row {
@@ -548,7 +555,7 @@ import SiteNav from '../components/SiteNav.astro';
     color: var(--color-stone-600);
   }
 
-  /* ── Prose (community section) ── */
+  /* ── Prose (reach section) ── */
   .prose {
     text-align: left;
     margin-bottom: 2.5rem;
