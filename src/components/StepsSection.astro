@@ -21,6 +21,26 @@ const { heading, after = '', skipTo } = Astro.props;
   </section>
 </div>
 <script type="module" src="/clips/steps.js" is:inline></script>
+<script type="module" is:inline>
+  // A load with #section in the URL (e.g. /#faq) scrolls before this section has grown to its
+  // scroll-pinned height, leaving the target far below the viewport. While the section is still
+  // resizing, scroll to the target again: only for targets after it, and only until the visitor
+  // scrolls on their own (or 5 s pass).
+  (() => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = id && document.getElementById(id);
+    const mount = document.querySelector('[data-pvs-steps]');
+    if (!target || !mount || !(mount.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
+    const ro = new ResizeObserver(() => target.scrollIntoView({ behavior: 'instant' }));
+    const stop = () => {
+      ro.disconnect();
+      for (const t of ['wheel', 'touchstart', 'keydown']) removeEventListener(t, stop);
+    };
+    for (const t of ['wheel', 'touchstart', 'keydown']) addEventListener(t, stop, { passive: true });
+    ro.observe(mount);
+    setTimeout(stop, 5000);
+  })();
+</script>
 
 <style>
   .steps-section { background: #F5F5F4; }

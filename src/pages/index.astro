@@ -97,6 +97,7 @@ import StepsSection from '../components/StepsSection.astro';
             calendars follow yours, your events reach people you'd never get to on
             your own.
           </p>
+          <a href="/organizers" class="usecase-link">What you get with your own calendar</a>
         </div>
 
         <div class="usecase-card">
@@ -210,7 +211,7 @@ import StepsSection from '../components/StepsSection.astro';
   </section>
 
   <!-- ════ FAQ ════ -->
-  <section class="faq">
+  <section id="faq" class="faq">
     <div class="container">
       <h2 class="section-heading">Common questions</h2>
       <div class="faq-grid">
@@ -466,6 +467,17 @@ import StepsSection from '../components/StepsSection.astro';
     line-height: 1.6;
     color: var(--color-stone-600);
   }
+
+  .usecase-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-orange-600);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .usecase-link:hover { color: var(--color-orange-500); }
 
   /* ── Extras (secondary features / values) ── */
   .extras {

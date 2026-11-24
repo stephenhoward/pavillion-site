@@ -1,0 +1,633 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+
+const screenshotAlt =
+  "A library's public events calendar on Pavillion: the library's name and description, a search box, category filters, and upcoming events listed by day, each with a photo, time, room and category.";
+---
+
+<Layout
+  title="A public events calendar for your organization · Pavillion"
+  description="A free public events calendar for your organization. Post your events, share one link, and bring in what you already have from Google Calendar or any ICS calendar."
+>
+  <SiteNav />
+
+  <main>
+    <!-- ════ HERO ════ -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-heading">A public calendar for your events.</h1>
+        <p class="hero-sub">
+          Pavillion gives your organization
+          its own events calendar on the web. Post your events, share one link, and
+          anyone can see what's coming up, no account required. And it's free.
+        </p>
+        <div class="actions">
+          <a href="https://pavillion.events" class="btn btn-primary">Apply for a free account</a>
+          <a href="https://pavillion.events/larkspur-library" class="btn btn-secondary">See an example calendar</a>
+        </div>
+
+        <figure class="shot">
+          <picture>
+            <source media="(max-width: 639px)" srcset="/organizers/larkspur-library-phone.jpg" width="780" height="1560" />
+            <img src="/organizers/larkspur-library-desktop.jpg" width="1800" height="1560" alt={screenshotAlt} />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ════ WHAT YOU GET ════ -->
+    <section class="get">
+      <div class="container">
+        <h2 class="section-heading">What you get</h2>
+        <div class="card-row">
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <!-- link -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <h3 class="feature-title">Easy to share.</h3>
+            <p class="feature-desc">
+              Your calendar gets its own page on Pavillion, with list, week and month
+              views. Put it on your flyers, your newsletter and your social posts. When someone shares an event, the preview shows its picture
+              and description.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <!-- calendar-plus -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
+            </div>
+            <h3 class="feature-title">Easy posting, including repeats.</h3>
+            <p class="feature-desc">
+              One-time or recurring events, images, categories, and places down to the
+              room ("Community Room, second floor"). Post from your phone or your desk.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <!-- users -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="feature-title">Invite others to help.</h3>
+            <p class="feature-desc">
+              Invite other people to help edit your calendar, so it isn't all on one
+              person.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ REACH ════ -->
+    <section class="reach">
+      <div class="container narrow">
+        <h2 class="section-heading section-heading-tight">Reach people beyond your own list</h2>
+        <div class="prose">
+          <p>
+            Other calendars on Pavillion can follow yours. When a town, chamber or
+            neighborhood calendar does, your events show up there automatically, in
+            front of people who have never heard of you. You still post once. If you
+            change or cancel an event, the change shows up everywhere it appears.
+          </p>
+          <p>
+            Your calendar can follow others too, if you want to gather events from
+            groups around you. And people on Mastodon and similar apps can follow your
+            calendar and see your new events in their feed.
+          </p>
+        </div>
+        <div class="actions">
+          <a href="https://pavillion.events/larkspur-bend" class="btn btn-secondary">See a community calendar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ MADE FOR EVERYONE (same layout as home page "extras") ════ -->
+    <section class="extras">
+      <div class="container">
+        <h2 class="section-heading">Made for everyone who might show up</h2>
+        <div class="extras-grid">
+
+          <div class="extras-item">
+            <div class="extras-icon">
+              <!-- unlock (no barriers) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+            </div>
+            <div>
+              <h3 class="extras-title">No sign-up to look.</h3>
+              <p class="extras-desc">
+                People can see your events without making an account or handing over
+                any personal information. Fewer hurdles between them and your door.
+              </p>
+            </div>
+          </div>
+
+          <div class="extras-item">
+            <div class="extras-icon">
+              <!-- globe (multilingual) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <h3 class="extras-title">In more than one language.</h3>
+              <p class="extras-desc">
+                Write your events in each language your community speaks, and people
+                read them in the one they're most comfortable with.
+              </p>
+            </div>
+          </div>
+
+          <div class="extras-item">
+            <div class="extras-icon">
+              <!-- accessibility -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.5" r="1.5"/><path d="M7.5 11h9"/><path d="M12 11v5.5"/><path d="M9.5 21l2.5-4.5 2.5 4.5"/></svg>
+            </div>
+            <div>
+              <h3 class="extras-title">Accessibility details built in.</h3>
+              <p class="extras-desc">
+                There are places on events and venues to describe access: step-free
+                entry, hearing assistance, sensory details. People know what to expect
+                before they come.
+              </p>
+            </div>
+          </div>
+
+          <div class="extras-item">
+            <div class="extras-icon">
+              <!-- shield (privacy) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3 class="extras-title">No tracking, no ads.</h3>
+              <p class="extras-desc">
+                There's no advertising and no data collection.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════ WORKS WITH WHAT YOU ALREADY HAVE ════ -->
+    <section class="fits">
+      <div class="container">
+        <h2 class="section-heading">Works with what you already have</h2>
+        <div class="card-row">
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <!-- upload (import) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <h3 class="feature-title">Bring your events over.</h3>
+            <p class="feature-desc">
+              Import from any calendar that exports the standard ICS format (Google
+              Calendar, Apple Calendar, Outlook and most website calendars do), as a
+              file or from a feed you own. You don't start from scratch.
+            </p>
+          </div>
+
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <!-- monitor (embed) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 class="feature-title">Show them on your website.</h3>
+            <p class="feature-desc">
+              Add your calendar to your own site with a simple embed code, and pick
+              colors and layout so it looks like part of the site. You post on Pavillion
+              and your website updates itself.
+            </p>
+            <a href="/widget-demo" class="card-link">See an embedded calendar</a>
+          </div>
+
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <!-- download (export) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <h3 class="feature-title">Take them with you.</h3>
+            <p class="feature-desc">
+              Download your events as an ICS file whenever you want, free.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ WHAT IT COSTS ════ -->
+    <section class="cost">
+      <div class="container narrow">
+        <h2 class="section-heading section-heading-tight">What it costs</h2>
+        <p class="section-intro">
+          Everything you need (publishing, sharing, inviting multiple editors) is
+          free. You can start a funding plan, $5 a month or $54
+          a year per calendar, which helps keep the service running and unlocks
+          extended features: embedding a calendar on your own website, and soon,
+          scheduled imports from your other calendars. Pavillion is open source, so
+          you can also run your own copy.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════ CTA ════ -->
+    <section class="cta">
+      <div class="container">
+        <h2 class="cta-heading">Start your calendar</h2>
+        <p class="cta-sub">
+          We're onboarding early communities now and review every application. If you'd
+          like a hand setting up or bringing your events over, <a href="mailto:hello@pavillion.social" class="inline-link">get in touch</a> and we'll help.
+        </p>
+        <div class="actions">
+          <a href="https://pavillion.events" class="btn btn-primary">Apply for a free account</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ════ FOOTER (same as home page) ════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">Pavillion</span>
+      <div class="footer-links">
+        <a href="https://pavillion.events/larkspur-bend">Demo</a>
+        <a href="https://docs.pavillion.social">Documentation</a>
+        <a rel="me" href="https://mastodon.social/@pavillion">Mastodon</a>
+      </div>
+      <p class="footer-note">Community-owned event infrastructure.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /*
+   * Shared rules below are copied from the global styles in src/pages/index.astro,
+   * which only load on the home page. Keep the two in step until they move to a shared stylesheet.
+   */
+
+  /* ── Shared ── */
+  .container {
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container { padding: 0 2rem; }
+  }
+
+  .container.narrow {
+    max-width: 44rem;
+    text-align: center;
+  }
+
+  .section-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-stone-800);
+  }
+
+  @media (min-width: 768px) {
+    .section-heading { font-size: 2.28rem; }
+  }
+
+  .section-heading-tight { margin-bottom: 1rem; }
+
+  .section-intro {
+    max-width: 38rem;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-stone-600);
+  }
+
+  .cost .section-intro { margin-bottom: 0; }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .inline-link,
+  .card-link {
+    color: var(--color-orange-600);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .inline-link:hover,
+  .card-link:hover { color: var(--color-orange-500); }
+
+  .card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--color-orange-500);
+    color: #fff;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
+  }
+  .btn-primary:hover {
+    background: var(--color-orange-600);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-stone-700);
+    border: 1.5px solid var(--color-stone-300);
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-stone-400);
+    background: var(--color-stone-100);
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 6rem 0 5rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(249, 115, 22, 0.06) 0%, transparent 100%),
+      var(--color-stone-50);
+  }
+
+  .hero-heading {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--color-stone-900);
+    margin-bottom: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-heading { font-size: 4rem; }
+  }
+
+  .hero-sub {
+    max-width: 38rem;
+    margin: 0 auto 2.5rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-stone-600);
+  }
+
+  /* Screenshot of an organizer's calendar: fades out at the bottom so it reads as a page that continues. */
+  .shot {
+    margin: 3.5rem auto 0;
+    max-width: 18rem;
+    border: 1px solid var(--color-stone-200);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 30px -10px rgb(0 0 0 / 15%), 0 4px 6px -4px rgb(0 0 0 / 8%);
+  }
+
+  @media (min-width: 640px) {
+    .shot { max-width: 56rem; }
+  }
+
+  .shot img {
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent);
+    mask-image: linear-gradient(to bottom, #000 75%, transparent);
+  }
+
+  /* ── Section backgrounds (alternating) ── */
+  .get,
+  .extras,
+  .cost {
+    padding: 5rem 0;
+    background: #fff;
+  }
+
+  .fits,
+  .reach {
+    padding: 5rem 0;
+    background: var(--color-stone-50);
+  }
+
+  /* ── Cards (home page .feature-card) ── */
+  .card-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .card-row > .feature-card { flex: 1 1 100%; }
+
+  @media (min-width: 640px) {
+    .card-row > .feature-card { flex: 0 1 calc((100% - 2rem) / 2); }
+  }
+
+  @media (min-width: 960px) {
+    .card-row > .feature-card { flex-basis: calc((100% - 4rem) / 3); }
+  }
+
+
+  .feature-card {
+    padding: 2rem;
+    background: #fff;
+    border: 1px solid var(--color-stone-200);
+    border-radius: var(--radius-xl);
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .feature-card:hover {
+    border-color: var(--color-stone-300);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 6%), 0 2px 4px -2px rgb(0 0 0 / 6%);
+  }
+
+  .feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-lg);
+    background: var(--color-orange-50);
+    color: var(--color-orange-500);
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-stone-800);
+  }
+
+  .feature-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-stone-600);
+  }
+
+  /* ── Prose (reach section) ── */
+  .prose {
+    text-align: left;
+    margin-bottom: 2.5rem;
+  }
+
+  .prose p {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--color-stone-600);
+  }
+
+  .prose p + p { margin-top: 1rem; }
+
+  /* ── Extras (home page "Built with your whole community in mind") ── */
+  .extras-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 52rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .extras-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .extras-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border-radius: var(--radius-xl);
+  }
+
+  .extras-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-lg);
+    background: var(--color-stone-100);
+    color: var(--color-stone-500);
+  }
+
+  .extras-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--color-stone-800);
+  }
+
+  .extras-desc {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-stone-500);
+  }
+
+  /* ── CTA ── */
+  .cta {
+    padding: 5rem 0;
+    text-align: center;
+    background: var(--color-stone-50);
+  }
+
+  .cta-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-stone-900);
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .cta-heading { font-size: 2.28rem; }
+  }
+
+  .cta-sub {
+    max-width: 34rem;
+    margin: 0 auto 2rem;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-stone-600);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--color-stone-200);
+    background: var(--color-stone-50);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .footer-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-stone-700);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.875rem;
+    color: var(--color-stone-500);
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--color-orange-500); }
+
+  .footer-note {
+    font-size: 0.8125rem;
+    color: var(--color-stone-400);
+  }
+</style>
