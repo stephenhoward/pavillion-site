@@ -91,7 +91,14 @@
       const top = r.top + scrollY;
       return r.height < innerHeight - 32 ? top - (innerHeight - r.height) / 2 : top - 16;
     };
-    let braked = scrollY > stopY() + 8;
+    // An anchor jump (a load with #section in the URL, or an in-page #link) is a request to go
+    // further down; braking would pull the page back to the clip, so it counts as braked already.
+    let braked = scrollY > stopY() + 8 || location.hash.length > 1;
+    addEventListener('click', (e) => {
+      const a = e.target instanceof Element && e.target.closest('a[href*="#"]');
+      if (a && a.hash.length > 1 && a.pathname === location.pathname) braked = true;
+    }, true);
+    addEventListener('hashchange', () => { braked = true; });
     let lastY = scrollY;
     let lastWheel = 0;
     const onWheel = () => { lastWheel = performance.now(); };
